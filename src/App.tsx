@@ -1,23 +1,63 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import {
+  Navigate,
+  RouterProvider,
+  createBrowserRouter,
+} from "react-router-dom";
 import Home from "./pages/Home";
 import SignIn from "./pages/SignIn";
 import SignUp from "./pages/SignUp";
 import About from "./pages/About";
 import SignOut from "./pages/SignOut";
 import Profile from "./pages/Profile";
-function App() {
+import Layout from "./Layout/Layout";
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Layout />,
+    children: [
+      {
+        path: "",
+        element: <Navigate to="/home" replace />,
+      },
+      {
+        path: "home",
+        element: <Home />,
+      },
+      {
+        path: "sign-in",
+        element: <SignIn />,
+      },
+      {
+        path: "sign-up",
+        element: <SignUp />,
+      },
+      {
+        path: "sign-out",
+        element: <SignOut />,
+      },
+      {
+        path: "about",
+        element: <About />,
+      },
+      {
+        path: "profile",
+        element: <Profile />,
+      },
+    ],
+  },
+]);
+
+const NestedApp = () => {
+  return <RouterProvider router={router} />;
+};
+
+const App = () => {
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/sign-in" element={<SignIn />} />
-        <Route path="/sign-up" element={<SignUp />} />
-        <Route path="/sign-up" element={<SignOut />} />
-        <Route path="/sign-up" element={<About />} />
-        <Route path="/sign-up" element={<Profile />} />
-      </Routes>
-    </BrowserRouter>
+    <div data-testid="app">
+      <NestedApp />
+    </div>
   );
-}
+};
 
 export default App;
