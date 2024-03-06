@@ -25,15 +25,15 @@ const router = createBrowserRouter([
         element: <Home />,
       },
       {
-        path: "sign-in",
+        path: "signin",
         element: <SignIn />,
       },
       {
-        path: "sign-up",
+        path: "signup",
         element: <SignUp />,
       },
       {
-        path: "sign-out",
+        path: "signout",
         element: <SignOut />,
       },
       {
