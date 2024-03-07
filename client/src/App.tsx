@@ -14,7 +14,7 @@ import Layout from "./Layout/Layout";
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <Layout />,
+    element: <Layout/>,
     children: [
       {
         path: "",
@@ -24,10 +24,7 @@ const router = createBrowserRouter([
         path: "home",
         element: <Home />,
       },
-      {
-        path: "signin",
-        element: <SignIn />,
-      },
+      
       {
         path: "signup",
         element: <SignUp />,
@@ -45,6 +42,10 @@ const router = createBrowserRouter([
         element: <Profile />,
       },
     ],
+  },
+  {
+    path: "signin",
+    element: <SignIn />,
   },
 ]);
 
