@@ -16,8 +16,9 @@ body {
     --text-primary: #1e1e1e;
     --gray-primary: #fafafa;
     --border-color: #ADADAD;
-    --google-button-background:#E9F1FF;
+    --blue-primary:#E9F1FF;
     --hover-orange-primary:rgb(224, 60, 49, 0.75) ;
+    --hover-border: #e15e55;
   }
 }
 

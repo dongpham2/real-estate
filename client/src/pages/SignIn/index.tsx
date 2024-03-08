@@ -5,6 +5,7 @@ import {DevTool} from "@hookform/devtools"
 import { FacebookIcon, AppleIcon, GoogleIcon} from "../../assets/icons/icons";
 import { Link  } from "react-router-dom";
 import { Button } from "../../components/Button";
+import { Input } from "../../components/Input";
 
 interface SignInFormTypes {
   username: string;
@@ -12,7 +13,6 @@ interface SignInFormTypes {
 }
 
 const SignIn = () => {
-  // const navigate = useNavigate();
   const form = useForm<SignInFormTypes>()
   const {register, handleSubmit, control, watch, formState :{errors}} =form
 
@@ -24,45 +24,42 @@ const SignIn = () => {
   }
 
   return <div className="flex">
-    {/* bg-cover h-full w-full absolute bg-no-repeat z-auto */}
-    <img src={background} alt="banner" className=" bg-cover block overflow-hidden  h-full w-full absolute bg-no-repeat z-auto" />
-    <div className="hidden absolute sm:flex top-[3%] left-[2%] flex items-center mr-2">
+    <img src={background} alt="background" className="bg-cover block overflow-hidden h-full w-full absolute bg-no-repeat z-auto" />
+    <div className="hidden absolute sm:flex top-[3%] left-[2%] items-center mr-2">
       <img alt="logo" src={logo} className=" p-2 mr-2 rounded-2xl bg-orange-primary"/>
-      <h3 className="text-base font-semibold sm:text-xl">homez</h3>
+      <h3 className="text-base font-semibold sm:text-xl">Homez</h3>
     </div>
     
     <form className="w-full sm:w-[539px] h-full sm:h-auto rounded-lg flex-col absolute bg-white p-10 bg-opacity-[75%] right-0 sm:top-[10%] sm:mr-[5%]" 
     onSubmit={handleSubmit(onSubmit)} noValidate >
       {/* head */}
-        <div>
-          <div className="flex justify-between">
-            <div className="flex">
-              <p className="flex-initial text-[22px] font-medium">Welcome to </p>
-              <Link to="/home" className="flex-initial px-[3px] text-[22px] font-medium text-orange-primary">Homez</Link>
-            </div>
-            <div className="flex flex-col">
-              <span className="text-[14px]">No Account?</span>
-              <Link to="/signup" className="text-orange-primary text-[14px]">Sign Up</Link>
-            </div>
+        <div className="flex justify-between">
+          <div className="flex">
+            <p className="flex-initial text-2xl font-medium">Welcome to </p>
+            <Link to="/home" className="flex-initial px-[3px] text-2xl font-medium text-orange-primary">Homez</Link>
+          </div>
+          <div className="flex flex-col">
+            <span className="text-base">No Account?</span>
+            <Link to="/signup" className="text-orange-primary text-base">Sign Up</Link>
           </div>
         </div>
         {/* Sign in others */}
         <h1 className="font-semibold text-5xl">Sign in</h1>
-        <div className="flex py-14 justify-between">
-          <Button className="flex h-[55px] w-[298px] bg-[--google-button-background] font-medium rounded-lg text-blue-400 items-center justify-center">
+        <div className="flex py-14 justify-between gap-2">
+          <Button className="flex px-14 py-4 bg-[--blue-primary] font-medium text-blue-400 items-center justify-center">
             <GoogleIcon/>
-            Sign in with Google
-            </Button>
-            <Button className="flex w-[55px] h-[55px] justify-center items-center bg-white">
-              <FacebookIcon/>
-            </Button>
-            <Button className="flex w-[55px] h-[55px] justify-center items-center bg-white">
-              <AppleIcon/>
-            </Button>
+            <span className="pl-2">Sign in with Google</span>
+          </Button>
+          <Button size="mdIcon" variant="light">
+            <FacebookIcon/>
+          </Button>
+          <Button size="mdIcon" variant="light">
+            <AppleIcon/>
+          </Button>
         </div>
 {/* Input */}
         <h4 className="font-medium pb-3 text-base sm:text-xl">Enter your username or email address</h4>
-        <input className="flex-1 focus:outline-none w-full h-[57px] rounded-lg border-[1px] border-[--border-color] hover:border-[#4285F4] pl-7 text-base sm:text-xl" 
+        <Input className="h-14 border-[1px] hover:border-[--hover-border] pl-7 text-base sm:text-xl" 
           {...register("username", {
               required:"Username or email is required",
               pattern:{
@@ -79,7 +76,7 @@ const SignIn = () => {
         <p className="text-red-500">{errors.username?.message}</p>
         
         <h4 className="font-medium pt-11 pb-3 text-base sm:text-xl">Enter your Password</h4>
-        <input className="flex-1 focus:outline-none w-full h-[57px] rounded-lg border-[1px] border-stone-400 hover:border-[#4285F4] pl-7 text-base sm:text-xl" 
+        <Input className="h-14 border-[1px] hover:border-[--hover-border] pl-7 text-base sm:text-xl" 
           {...register("password", 
             {
               required:"Password is required"
@@ -88,11 +85,11 @@ const SignIn = () => {
         <p className="text-red-500">{errors.password?.message}</p>
  {/* Forgot password */}
         <div className="flex justify-end mb-10">
-          <Button className="flex justify-end font-medium text-blue-400 mt-3 text-base sm:text-xl hover:bg-transparent">Forgot Password</Button>
+          <Button className="flex justify-end font-medium text-blue-400 hover:text-blue-300 mt-3 text-base sm:text-xl hover:bg-transparent">Forgot Password</Button>
         </div>
 {/* Submit */}
         <div className="flex justify-end">
-          <input className="flex bg-[--orange-primary] bg-opacity-100 justify-center text-white rounded-lg h-[54px] w-[236px] text-base sm:text-xl hover:bg-[--hover-orange-primary]" 
+          <Input className="flex bg-[--orange-primary] bg-opacity-100 justify-center text-white rounded-lg h-[54px] w-[236px] text-base sm:text-xl hover:bg-[--hover-orange-primary]" 
             type="submit" value="Sign In" />
         </div>
     </form>
