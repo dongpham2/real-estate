@@ -15,6 +15,10 @@ body {
     --orange-primary: #e03c31;
     --text-primary: #1e1e1e;
     --gray-primary: #fafafa;
+    --border-color: #ADADAD;
+    --blue-primary:#E9F1FF;
+    --hover-orange-primary:rgb(224, 60, 49, 0.75) ;
+    --hover-border: #e15e55;
   }
 }
 

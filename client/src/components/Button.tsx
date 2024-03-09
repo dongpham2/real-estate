@@ -9,12 +9,15 @@ const buttonVariants = cva("text-base text-black rounded-sm font-semibold", {
       default: "text-black hover:bg-gray-primary",
       primary: "border bg-orange-primary",
       ghost: "border hover:bg-gray-primary",
+      light: "bg-white hover:bg-gray-primary",
     },
     size: {
       default: "rounded-md",
       sm: "lg:px-4 lg:py-3 sm:px-3 sm:py-2",
       lg: "rounded py-5 px-8",
       xl: "py-6 px-24",
+      mdIcon:"px-4 lg:px-4 lg:py-3 sm:px-3 sm:py-2", //kbt dat ten sao cho hop ly :>
+
     },
   },
   defaultVariants: {

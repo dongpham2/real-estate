@@ -9,6 +9,7 @@ const Input = React.forwardRef<HTMLInputElement, InputProps>(
     return (
       <input
         type={type}
+        spellCheck="false"
         className={cn(
           "w-full rounded-md focus:outline-none bg-background text-base font-medium disabled:cursor-not-allowed disabled:opacity-50",
           className
