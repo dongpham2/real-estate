@@ -10,6 +10,8 @@ import About from "./pages/About";
 import SignOut from "./pages/SignOut";
 import Profile from "./pages/Profile";
 import Layout from "./Layout/Layout";
+import { store } from "./redux/store.js";
+import { Provider } from "react-redux";
 
 const router = createBrowserRouter([
   {
@@ -56,7 +58,9 @@ const NestedApp = () => {
 const App = () => {
   return (
     <div data-testid="app">
-      <NestedApp />
+      <Provider store={store}>
+        <NestedApp />
+      </Provider>
     </div>
   );
 };
